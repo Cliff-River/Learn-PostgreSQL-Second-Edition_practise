@@ -27,3 +27,9 @@ FROM posts;
 
 SELECT pk, author, title, DENSE_RANK() OVER (ORDER BY author)
 FROM posts;
+
+SELECT x FROM GENERATE_SERIES(1, 5) AS x;
+
+SELECT x, LAG(x, 2) OVER w
+FROM GENERATE_SERIES(1, 5) AS x
+WINDOW w AS (ORDER BY x);
